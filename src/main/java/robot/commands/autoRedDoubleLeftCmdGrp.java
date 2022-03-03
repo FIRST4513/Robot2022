@@ -39,16 +39,34 @@ public class autoRedDoubleLeftCmdGrp extends SequentialCommandGroup {
         //          new command3(argsN, subsystem)
         //      )    
         //  );
-        new intakeExtendCmd(payloadSubSys),
-        new driveCmd(-48, -0.5, 0, "CURRENT_HEADING", 5, true, drivetrainSubSys),
+        // DOUBLE LEFT ROUTINE
+        parallel(
+            new intakeExtendCmd(payloadSubSys),
+            new driveCmd(-57, -0.5, 0, "CURRENT_HEADING", 6, true, drivetrainSubSys)
+        ),
+        new delayCmd(2.0),
         new intakeRetractOnCmd(payloadSubSys),
+        new delayCmd(2.0),
         new intakeRetractOffCmd(payloadSubSys),
-        new delayCmd(3.0),
-        new driveCmd(48, 0.5, 0, "CURRENT_HEADING", 5, false, drivetrainSubSys),
-        new driveSwingTurnCmd(0.4, 0.5, 24, 0, "DIST", true, 4, drivetrainSubSys),
+
+        new driveCmd(57, 0.5, 0, "CURRENT_HEADING", 6, true, drivetrainSubSys),
+        new drivePointTurnCmd(-0.15, -10.0, true, 5, drivetrainSubSys),
+
         new shooterFireOnCmd(payloadSubSys),
-        new delayCmd(5.0),
+        new delayCmd(3.0),
         new shooterFireOffCmd(payloadSubSys)
+
+
+        // new intakeExtendCmd(payloadSubSys),
+        // new driveCmd(-48, -0.5, 0, "CURRENT_HEADING", 5, true, drivetrainSubSys),
+        // new intakeRetractOnCmd(payloadSubSys),
+        // new intakeRetractOffCmd(payloadSubSys),
+        // new delayCmd(3.0),
+        // new driveCmd(48, 0.5, 0, "CURRENT_HEADING", 5, false, drivetrainSubSys),
+        // new driveSwingTurnCmd(0.4, 0.5, 24, 0, "DIST", true, 4, drivetrainSubSys),
+        // new shooterFireOnCmd(payloadSubSys),
+        // new delayCmd(5.0),
+        // new shooterFireOffCmd(payloadSubSys)
         );
     }
 
