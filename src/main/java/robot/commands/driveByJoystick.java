@@ -70,21 +70,26 @@ public class driveByJoystick extends CommandBase {
     @Override
     public void execute() {
         
+        boolean slowMode = driver_ctrlr.getXButton();       // Look to see if X Button is held down
 
         if (driver_ctrlr.getRightTriggerAxis() > 0){
             //were being driven forward
             speed = driver_ctrlr.getRightTriggerAxis();
+            if (slowMode)  speed = speed * 0.3;     // Slow down   
         } else if (driver_ctrlr.getLeftTriggerAxis() > 0){
             //were being driven backwards
             speed = -driver_ctrlr.getLeftTriggerAxis() * 0.7;
+            if (slowMode)  speed = speed * 0.3;     // Slow down   
         } else{
             speed = 0.0;
         }
 
         rotation = driver_ctrlr.getLeftX() * 0.3;
 
+        if (slowMode)  rotation = rotation * 0.5;     // Slow down   
+        
         m_drivetrainSubSys.curveDrive(speed, rotation, true);
-        //m_drivetrainSubSys.currPwr = speed;
+
     }
 
     // Called once the command ends or is interrupted.
