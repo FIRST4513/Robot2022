@@ -79,7 +79,7 @@ public class shooterFireOffCmd extends CommandBase {
     // Returns true when the command should end.
     @Override
     public boolean isFinished() {
-        if (shooterTimer.get() > 1.0) {
+        if (shooterTimer.get() > 1.5) {
             return true;
         }
         return false;
