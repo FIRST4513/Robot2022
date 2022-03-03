@@ -46,7 +46,7 @@ public class autoRedSingleCmdGrp extends SequentialCommandGroup {
             new driveCmd(-44, -0.5, 0, "NEW_HEADING", 5, true, drivetrainSubSys)
         ),
         new delayCmd(2.0),
-        new intakeRetractOnCmd(payloadSubSys),
+        new intakeRetractOnCmd( 0.0, payloadSubSys),
         new delayCmd(2.0),
         new intakeRetractOffCmd(payloadSubSys),
 

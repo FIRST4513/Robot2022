@@ -45,7 +45,7 @@ public class autoRedDoubleLeftCmdGrp extends SequentialCommandGroup {
             new driveCmd(-57, -0.5, 0, "CURRENT_HEADING", 6, true, drivetrainSubSys)
         ),
         new delayCmd(2.0),
-        new intakeRetractOnCmd(payloadSubSys),
+        new intakeRetractOnCmd( 0.0, payloadSubSys),
         new delayCmd(2.0),
         new intakeRetractOffCmd(payloadSubSys),
 

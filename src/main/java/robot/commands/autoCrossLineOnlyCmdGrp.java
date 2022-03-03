@@ -41,7 +41,7 @@ public class autoCrossLineOnlyCmdGrp extends SequentialCommandGroup {
         //  );
         new intakeExtendCmd(payloadSubSys),
         new driveCmd(-48, -0.5, 0, "CURRENT_HEADING", 5, true, drivetrainSubSys),
-        new intakeRetractOnCmd(payloadSubSys),
+        new intakeRetractOnCmd( 0.0, payloadSubSys),
         new intakeRetractOffCmd(payloadSubSys),
         new delayCmd(3.0),
         new driveCmd(48, 0.5, 0, "CURRENT_HEADING", 5, false, drivetrainSubSys),
