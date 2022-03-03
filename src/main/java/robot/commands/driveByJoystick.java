@@ -78,7 +78,7 @@ public class driveByJoystick extends CommandBase {
             if (slowMode)  speed = speed * 0.3;     // Slow down   
         } else if (driver_ctrlr.getLeftTriggerAxis() > 0){
             //were being driven backwards
-            speed = -driver_ctrlr.getLeftTriggerAxis() * 0.7;
+            speed = -driver_ctrlr.getLeftTriggerAxis();
             if (slowMode)  speed = speed * 0.3;     // Slow down   
         } else{
             speed = 0.0;

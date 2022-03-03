@@ -148,16 +148,16 @@ shooterFireOffBtn.whenReleased(new shooterFireOffCmd( m_payloadSubSys ) ,true);
     SmartDashboard.putData("shooterFireOffBtn",new shooterFireOffCmd( m_payloadSubSys ) );
 
 final JoystickButton shooterFireOnBtn = new JoystickButton(copilotJoystick, 1);        
-shooterFireOnBtn.whileHeld(new shooterFireOnCmd( m_payloadSubSys ) ,true);
-    SmartDashboard.putData("shooterFireOnBtn",new shooterFireOnCmd( m_payloadSubSys ) );
+shooterFireOnBtn.whileHeld(new shooterFireOnCmd(false, m_payloadSubSys) ,true);
+    SmartDashboard.putData("shooterFireOnBtn",new shooterFireOnCmd(false, m_payloadSubSys) );
 
 final JoystickButton intakeRetractOffBtn = new JoystickButton(driverController, XboxController.Button.kB.value);        
 intakeRetractOffBtn.whenReleased(new intakeRetractOffCmd( m_payloadSubSys ) ,true);
     SmartDashboard.putData("intakeRetractOffBtn",new intakeRetractOffCmd( m_payloadSubSys ) );
 
 final JoystickButton intakeRetractOnBtn = new JoystickButton(driverController, XboxController.Button.kB.value);        
-intakeRetractOnBtn.whenPressed(new intakeRetractOnCmd(0, m_payloadSubSys) ,true);
-    SmartDashboard.putData("intakeRetractOnBtn",new intakeRetractOnCmd(0, m_payloadSubSys) );
+intakeRetractOnBtn.whenPressed(new intakeRetractOnCmd( m_payloadSubSys ) ,true);
+    SmartDashboard.putData("intakeRetractOnBtn",new intakeRetractOnCmd( m_payloadSubSys ) );
 
 final JoystickButton intakeExntendBtn = new JoystickButton(driverController, XboxController.Button.kY.value);        
 intakeExntendBtn.whenPressed(new intakeExtendCmd( m_payloadSubSys ) ,true);

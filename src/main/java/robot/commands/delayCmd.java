@@ -53,6 +53,7 @@ public class delayCmd extends CommandBase {
     public void initialize() {
         delayTimer.reset();
         delayTimer.start();
+        System.out.println("---------- delayCmd Has Started");
     }
 
     // Called every time the scheduler runs while the command is scheduled.
@@ -69,7 +70,7 @@ public class delayCmd extends CommandBase {
     // Returns true when the command should end.
     @Override
     public boolean isFinished() {
-        if (delayTimer.get() > m_timeOut) { return true; }
+        if (delayTimer.get() > m_timeOut) { System.out.println("---------- delayCmd Has Ended"); return true; }
         return false;
     }
 
