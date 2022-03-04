@@ -131,6 +131,15 @@ shooterMotor = new WPI_TalonSRX(8);
 
     public void enableCompressor(){ isCompressorOn = true; }
     public void disableCompressor(){ isCompressorOn = false; }
+    public void toggleCompressor() {
+        if ( isCompressorOn == true) {
+            // turn off Compressor
+            isCompressorOn = false;
+        } else {
+            // turn on Compressor
+            isCompressorOn = true;
+        }
+    }
 
     public void intakeExtend(){ isIntakeExtended = true; }
     public void intakeRetract(){ isIntakeExtended = false; }
