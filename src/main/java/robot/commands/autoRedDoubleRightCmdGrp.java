@@ -44,27 +44,15 @@ public class autoRedDoubleRightCmdGrp extends SequentialCommandGroup {
             new driveCmd(-43, -0.5, 0, "CURRENT_HEADING", 5, true, drivetrainSubSys)
         ),
         new delayCmd(2.0),
-        new intakeRetractOnCmd( 0.0, payloadSubSys),
-        new delayCmd(2.0),
+        new intakeRetractOnCmd(payloadSubSys),
         new intakeRetractOffCmd(true, payloadSubSys),
 
         new driveSwingTurnCmd(0.2, 0.5, 0, 45, "HDG", false, 5, drivetrainSubSys),
         new driveSwingTurnCmd(0.2, -0.5, 0, 10, "HDG", false, 5, drivetrainSubSys),
         new driveCmd(16, 0.5, 0, "NEW_HEADING", 2, true, drivetrainSubSys),
         
-        new shooterFireOnCmd(true, payloadSubSys),
-        new delayCmd(3.0),
-        new shooterFireOffCmd(payloadSubSys)
+        new shooterFireOnCmd(true, payloadSubSys)
 
-        // new driveCmd(-48, -0.5, 0, "CURRENT_HEADING", 5, true, drivetrainSubSys),
-        // new intakeRetractOnCmd(payloadSubSys),
-        // new intakeRetractOffCmd(payloadSubSys),
-        // new delayCmd(3.0),
-        // new driveCmd(48, 0.5, 0, "CURRENT_HEADING", 5, false, drivetrainSubSys),
-        // new driveSwingTurnCmd(0.4, 0.5, 24, 0, "DIST", true, 4, drivetrainSubSys),
-        // new shooterFireOnCmd(payloadSubSys),
-        // new delayCmd(5.0),
-        // new shooterFireOffCmd(payloadSubSys)
         );
     }
 
