@@ -41,7 +41,7 @@ public class autoShootAndCrossLineCmdGrp extends SequentialCommandGroup {
         //  );
 
 
-        new shooterFireOnCmd(payloadSubSys),
+        new shooterFireOnCmd(true, payloadSubSys),
         new delayCmd(3.0),
         new shooterFireOffCmd(payloadSubSys),
 

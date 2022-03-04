@@ -52,7 +52,7 @@ public class autoRedDoubleLeftCmdGrp extends SequentialCommandGroup {
         new driveCmd(57, 0.5, 0, "CURRENT_HEADING", 6, true, drivetrainSubSys),
         new drivePointTurnCmd(-0.15, -10.0, true, 5, drivetrainSubSys),
 
-        new shooterFireOnCmd(payloadSubSys),
+        new shooterFireOnCmd(true, payloadSubSys),
         new delayCmd(3.0),
         new shooterFireOffCmd(payloadSubSys)
 

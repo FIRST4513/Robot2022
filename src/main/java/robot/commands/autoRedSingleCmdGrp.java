@@ -53,7 +53,7 @@ public class autoRedSingleCmdGrp extends SequentialCommandGroup {
         new driveCmd(44, 0.5, 0, "NEW_HEADING", 5, true, drivetrainSubSys),
         new driveSwingTurnCmd(0.25, -0.25, 30, -25, "DIST", true, 5, drivetrainSubSys),
 
-        new shooterFireOnCmd(payloadSubSys),
+        new shooterFireOnCmd(true, payloadSubSys),
         new delayCmd(3.0),
         new shooterFireOffCmd(payloadSubSys)
 
