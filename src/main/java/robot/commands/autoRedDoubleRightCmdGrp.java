@@ -46,7 +46,7 @@ public class autoRedDoubleRightCmdGrp extends SequentialCommandGroup {
         new delayCmd(2.0),
         new intakeRetractOnCmd( 0.0, payloadSubSys),
         new delayCmd(2.0),
-        new intakeRetractOffCmd(payloadSubSys),
+        new intakeRetractOffCmd(true, payloadSubSys),
 
         new driveSwingTurnCmd(0.2, 0.5, 0, 45, "HDG", false, 5, drivetrainSubSys),
         new driveSwingTurnCmd(0.2, -0.5, 0, 10, "HDG", false, 5, drivetrainSubSys),

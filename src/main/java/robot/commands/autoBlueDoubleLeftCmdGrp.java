@@ -42,7 +42,7 @@ public class autoBlueDoubleLeftCmdGrp extends SequentialCommandGroup {
         new intakeExtendCmd(payloadSubSys),
         new driveCmd(-48, -0.5, 0, "CURRENT_HEADING", 5, true, drivetrainSubSys),
         new intakeRetractOnCmd( 0.0, payloadSubSys),
-        new intakeRetractOffCmd(payloadSubSys),
+        new intakeRetractOffCmd(true, payloadSubSys),
         new delayCmd(3.0),
         new driveCmd(48, 0.5, 0, "CURRENT_HEADING", 5, false, drivetrainSubSys),
         new driveSwingTurnCmd(0.4, 0.5, 24, 0, "DIST", true, 4, drivetrainSubSys),

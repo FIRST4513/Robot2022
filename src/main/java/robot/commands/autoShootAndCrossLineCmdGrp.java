@@ -42,9 +42,7 @@ public class autoShootAndCrossLineCmdGrp extends SequentialCommandGroup {
 
 
         new shooterFireOnCmd(true, payloadSubSys),
-        new delayCmd(3.0),
         new shooterFireOffCmd(payloadSubSys),
-
         new driveCmd(-43, -0.5, 0, "CURRENT_HEADING", 5, true, drivetrainSubSys)
 
         );
