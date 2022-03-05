@@ -39,15 +39,36 @@ public class autoBlueSingleCmdGrp extends SequentialCommandGroup {
         //          new command3(argsN, subsystem)
         //      )    
         //  );
+        //new intakeExtendCmd(payloadSubSys),
+        //new driveCmd(-48, -0.5, 0, "CURRENT_HEADING", 5, true, drivetrainSubSys),
+        //new intakeRetractOnCmd( payloadSubSys),
+        //new intakeRetractOffCmd(true, payloadSubSys),
+        //new delayCmd(3.0),
+        //new driveCmd(48, 0.5, 0, "CURRENT_HEADING", 5, false, drivetrainSubSys),
+        //new driveSwingTurnCmd(0.4, 0.5, 24, 0, "DIST", true, 4, drivetrainSubSys),
+        //new shooterFireOnCmd(true, payloadSubSys),
+        //new delayCmd(5.0),
+        //new shooterFireOffCmd(payloadSubSys)
+        new resetGyroCmd(drivetrainSubSys),
+
         new intakeExtendCmd(payloadSubSys),
-        new driveCmd(-48, -0.5, 0, "CURRENT_HEADING", 5, true, drivetrainSubSys),
-        new intakeRetractOnCmd( payloadSubSys),
+        
+        new delayCmd(0.75),
+        // driveSwingTurnCmd(speed, rotation, dist, hdg, mode, brakeFlag, timeOut, subsystem)
+        new driveSwingTurnCmd(-0.3, -0.4, -15.0, 0, "DIST", false, 3, drivetrainSubSys),
+        // driveCmd(dist, pwr, hdg, mode, timeOut, brakeFlag, subsystem)
+        new driveCmd(-36, -0.4, 0, "CURRENT_HEADING", 8, true, drivetrainSubSys),
+        
+        new intakeRetractOnCmd(payloadSubSys),
         new intakeRetractOffCmd(true, payloadSubSys),
-        new delayCmd(3.0),
-        new driveCmd(48, 0.5, 0, "CURRENT_HEADING", 5, false, drivetrainSubSys),
-        new driveSwingTurnCmd(0.4, 0.5, 24, 0, "DIST", true, 4, drivetrainSubSys),
+        
+        new driveCmd(60, 0.4, -25, "NEW_HEADING", 10, true, drivetrainSubSys),
+        
+        //  drivePointTurnCmd(rotation, hdg, brakeFlag, timeOut, subsystem)
+        //new drivePointTurnCmd(-0.4, -15, true, 3, drivetrainSubSys),
+
         new shooterFireOnCmd(true, payloadSubSys),
-        new delayCmd(5.0),
+        new delayCmd(2.0),
         new shooterFireOffCmd(payloadSubSys)
         );
     }

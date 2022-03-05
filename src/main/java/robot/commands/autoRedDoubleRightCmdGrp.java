@@ -39,6 +39,7 @@ public class autoRedDoubleRightCmdGrp extends SequentialCommandGroup {
         //          new command3(argsN, subsystem)
         //      )    
         //  );
+        /*
         parallel(
             new intakeExtendCmd(payloadSubSys),
             new driveCmd(-43, -0.5, 0, "CURRENT_HEADING", 5, true, drivetrainSubSys)
@@ -52,7 +53,25 @@ public class autoRedDoubleRightCmdGrp extends SequentialCommandGroup {
         new driveCmd(16, 0.5, 0, "NEW_HEADING", 2, true, drivetrainSubSys),
         
         new shooterFireOnCmd(true, payloadSubSys)
+        */
+        new intakeExtendCmd(payloadSubSys),
+        new delayCmd(0.5),
 
+        new driveCmd(-44, -0.5, 0, "CURRENT_HEADING", 8, true, drivetrainSubSys),
+        
+        new delayCmd(0.5),
+        new intakeRetractOnCmd( payloadSubSys),
+        new intakeRetractOffCmd(true, payloadSubSys),
+        
+        // driveSwingTurnCmd(speed, rotation, dist, hdg, mode, brakeFlag, timeOut, subsystem)
+        new driveSwingTurnCmd(0.3, 0.3, 20, 0, "DIST", false, 5, drivetrainSubSys),
+        new driveSwingTurnCmd(0.3, -0.35, 28, 0, "DIST", false, 5, drivetrainSubSys),
+        
+        //new driveCmd(44, 0.5, 0, "CURRENT_HEADING", 8, true, drivetrainSubSys),
+        
+        new shooterFireOnCmd(true, payloadSubSys),
+        new delayCmd(2.0),
+        new shooterFireOffCmd(payloadSubSys)
         );
     }
 
