@@ -58,8 +58,7 @@ public class autoDoubleRightCmdGrp extends SequentialCommandGroup {
         
         // give time for ball to get into robot the retract intake mechanism
         new delayCmd(0.5),
-        new intakeRetractOnCmd( payloadSubSys),
-        new intakeRetractOffCmd(true, payloadSubSys),
+        new intakeRetractCmd( payloadSubSys),
         
         // Drforward S turn (dbl arc) to target
         // driveSwingTurnCmd(speed, rotation, dist, hdg, mode, brakeFlag, timeOut, subsystem)

@@ -60,12 +60,12 @@ public class autoSingleCmdGrp extends SequentialCommandGroup {
         new driveCmd(-36,   -0.4,    0,  "CURRENT_HEADING",      8,      true,     drivetrainSubSys),
         
         // We have the ball now so retract intake mechanism
-        new intakeRetractOnCmd(payloadSubSys),
-        new intakeRetractOffCmd(true, payloadSubSys),
+        new intakeRetractCmd(payloadSubSys),
         
         // Drive fwd with new heading to arc back in toward the goal
         // driveCmd( dist,   pwr,   hdg,       mode,          timeOut, brakeFlag, subsystem)
         new driveCmd(  60,    0.4,   -25,   "NEW_HEADING",        10,      true,   drivetrainSubSys),
+        // Swing turn instead of driveCmd?
         
         // Were there so shoot the ball
         new shooterFireOnCmd(true, payloadSubSys),

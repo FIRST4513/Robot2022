@@ -57,7 +57,7 @@ public class autoDoubleCenterCmdGrp extends SequentialCommandGroup {
         new driveSwingTurnCmd(0.20, -0.42, 52, 0, "DIST", false, 7, drivetrainSubSys),
         
         // Retract intake mechanism
-        new intakeRetractOnCmd(payloadSubSys),
+        new intakeRetractCmd(payloadSubSys),
 
         // Drive a small 20" arc to line up for shooring the ball straight in
         new driveSwingTurnCmd(0.25, 0.34, 20, 0, "DIST", true, 6, drivetrainSubSys),
