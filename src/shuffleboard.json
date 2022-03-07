@@ -9,7 +9,6 @@
         "showGrid": true,
         "hgap": 16.0,
         "vgap": 16.0,
-        "titleType": 0,
         "tiles": {
           "0,0": {
             "size": [
@@ -362,6 +361,116 @@
               "_source0": "network_table:///SmartDashboard/Gyro Yaw",
               "_title": "Gyro Yaw"
             }
+          },
+          "6,2": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Command",
+              "_source0": "network_table:///SmartDashboard/Red - Single",
+              "_title": "Red - Single"
+            }
+          },
+          "7,2": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Command",
+              "_source0": "network_table:///SmartDashboard/Red - Double Left",
+              "_title": "Red - Double Left"
+            }
+          },
+          "8,2": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Command",
+              "_source0": "network_table:///SmartDashboard/Red - Double Right",
+              "_title": "Red - Double Right"
+            }
+          },
+          "9,2": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Command",
+              "_source0": "network_table:///SmartDashboard/Blue - Single",
+              "_title": "Blue - Single"
+            }
+          },
+          "10,2": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Command",
+              "_source0": "network_table:///SmartDashboard/Blue - Double Left",
+              "_title": "Blue - Double Left"
+            }
+          },
+          "11,2": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Command",
+              "_source0": "network_table:///SmartDashboard/Blue - Double Right",
+              "_title": "Blue - Double Right"
+            }
+          },
+          "12,2": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Command",
+              "_source0": "network_table:///SmartDashboard/Do Nothing",
+              "_title": "Do Nothing"
+            }
+          },
+          "0,3": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Command",
+              "_source0": "network_table:///SmartDashboard/Shoot Only",
+              "_title": "Shoot Only"
+            }
+          },
+          "1,3": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Command",
+              "_source0": "network_table:///SmartDashboard/Shoot and Cross Line",
+              "_title": "Shoot and Cross Line"
+            }
+          },
+          "2,3": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Command",
+              "_source0": "network_table:///SmartDashboard/Cross Line Only",
+              "_title": "Cross Line Only"
+            }
           }
         }
       }
@@ -375,7 +484,6 @@
         "showGrid": true,
         "hgap": 16.0,
         "vgap": 16.0,
-        "titleType": 0,
         "tiles": {
           "0,0": {
             "size": [
@@ -510,7 +618,6 @@
         "showGrid": true,
         "hgap": 16.0,
         "vgap": 16.0,
-        "titleType": 0,
         "tiles": {
           "3,0": {
             "size": [
@@ -535,7 +642,6 @@
         "showGrid": true,
         "hgap": 16.0,
         "vgap": 16.0,
-        "titleType": 0,
         "tiles": {
           "3,1": {
             "size": [
@@ -681,7 +787,6 @@
         "showGrid": true,
         "hgap": 16.0,
         "vgap": 16.0,
-        "titleType": 0,
         "tiles": {}
       }
     },
@@ -694,7 +799,6 @@
         "showGrid": true,
         "hgap": 16.0,
         "vgap": 16.0,
-        "titleType": 0,
         "tiles": {}
       }
     }
@@ -702,7 +806,7 @@
   "windowGeometry": {
     "x": -8.0,
     "y": 0.0,
-    "width": 847.0,
+    "width": 1930.0,
     "height": 680.0
   }
 }
