@@ -144,6 +144,8 @@ shooterMotor = new WPI_TalonSRX(8);
     public void intakeExtend(){ isIntakeExtended = true; }
     public void intakeRetract(){ isIntakeExtended = false; }
 
-
+    public boolean isIntakeExtended() {
+        return isIntakeExtended;
+    }
 }
 

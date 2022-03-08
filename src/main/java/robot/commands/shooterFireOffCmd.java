@@ -73,7 +73,9 @@ public class shooterFireOffCmd extends CommandBase {
     public void end(boolean interrupted) {
         m_payloadSubSys.shooterMotorStop();
         m_payloadSubSys.conveyorMotorStop();
-        m_payloadSubSys.handoffMotorStop();
+        if (!m_payloadSubSys.isIntakeExtended()) {
+            m_payloadSubSys.handoffMotorStop();
+        }
     }
 
     // Returns true when the command should end.

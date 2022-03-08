@@ -68,7 +68,7 @@ public class shooterFireOnCmd extends CommandBase {
             m_payloadSubSys.conveyorMotorStart(Constants.conveyor_speed_fire);
         }
         
-        if (delayTimer.get() > (0.25 + 0.25)) {
+        if (delayTimer.get() > (0.25 + 0.4)) {
             m_payloadSubSys.handoffMotorStart(Constants.handoff_speed_fire);
         }
     }
