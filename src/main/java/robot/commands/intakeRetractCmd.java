@@ -60,7 +60,6 @@ public class intakeRetractCmd extends CommandBase {
     // Called every time the scheduler runs while the command is scheduled.
     @Override
     public void execute() {
-
         m_payloadSubSys.intakeRetract();
         m_payloadSubSys.intakeRollerMotorStop();
         m_payloadSubSys.handoffMotorStart(Constants.handoff_speed);     // Keep the handoff motor running
@@ -77,6 +76,8 @@ public class intakeRetractCmd extends CommandBase {
     @Override
     public boolean isFinished() {
         if (delayTimer.get() > 0.5) {
+            // give time for handoff motor to fully seat the ball
+            // before turning off handoff motor
             return true;
         }
         return false;
