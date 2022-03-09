@@ -49,6 +49,10 @@ public class autoDoubleRightCmdGrp extends SequentialCommandGroup {
         // New Route - Robot parallel with side line
         // preferred because robot gets clearly of the box
         
+        // Reset Gyro and Encoders prior to auto run
+        new resetGyroCmd(drivetrainSubSys),
+        new clearEncodersCmd(drivetrainSubSys),
+        
         // Lets get started so extend intake mechanism
         new intakeExtendCmd(payloadSubSys),
         new delayCmd(0.5),

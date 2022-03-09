@@ -46,6 +46,10 @@ public class autoDoubleCenterCmdGrp extends SequentialCommandGroup {
         // **** Line up the robot parallel with the left outside line ****
         // ***************************************************************
 
+        // Reset Gyro and Encoders prior to auto run
+        new resetGyroCmd(drivetrainSubSys),
+        new clearEncodersCmd(drivetrainSubSys),
+        
         // Extend the intake mechanism
         new intakeExtendCmd(payloadSubSys),
        

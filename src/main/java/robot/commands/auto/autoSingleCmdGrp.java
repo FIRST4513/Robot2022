@@ -46,8 +46,11 @@ public class autoSingleCmdGrp extends SequentialCommandGroup {
         // **** Line up the robot parallel with the front line        ****
         // ***************************************************************
 
-        // Extend the intake mechanism to capture ball
+        // Reset Gyro and Encoders prior to auto run
         new resetGyroCmd(drivetrainSubSys),
+        new clearEncodersCmd(drivetrainSubSys),
+
+        // Extend the intake mechanism to capture ball
         new intakeExtendCmd(payloadSubSys),
         new delayCmd(0.75),
 
