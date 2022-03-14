@@ -53,23 +53,27 @@ public class autoDoubleCenterCmdGrp extends SequentialCommandGroup {
         // Extend the intake mechanism
         new intakeExtendCmd(payloadSubSys),
        
-        // Drive reverse with a large reverse clockise arc to get ball
+        // Drive reverse with a large reverse clockwise arc to get ball
         // driveSwingTurnCmd(speed, rotation, dist, hdg, mode, brakeFlag, timeOut, subsystem)
-        new driveSwingTurnCmd(-0.20, 0.4, -62, 0, "DIST", false, 7, drivetrainSubSys),
+        new driveSwingTurnCmd(-0.20, 0.38, -62, 0, "DIST", false, 7, drivetrainSubSys),
 
+        // Drive backwards 8 inches after reverse arc 
+        new driveCmd(-8.0, -0.4, 0, "CURRENT_HEADING", 3, true, drivetrainSubSys),
+        
         // Drive forward with a tighter turn radius
-        new driveSwingTurnCmd(0.20, -0.42, 52, 0, "DIST", false, 7, drivetrainSubSys),
+        new driveSwingTurnCmd(0.20, -0.38, 52, 0, "DIST", false, 7, drivetrainSubSys),
         
         // Retract intake mechanism
         new intakeRetractCmd(payloadSubSys),
-
+        
         // Drive a small 20" arc to line up for shooring the ball straight in
-        new driveSwingTurnCmd(0.25, 0.34, 20, 0, "DIST", true, 6, drivetrainSubSys),
+        new driveSwingTurnCmd(0.25, 0.4, 16, 0, "DIST", true, 6, drivetrainSubSys),
 
         // were there so shoot the ball
         new shooterFireOnCmd(true, payloadSubSys),
         new shooterFireOffCmd(payloadSubSys)
 
+        
         );
     }
 

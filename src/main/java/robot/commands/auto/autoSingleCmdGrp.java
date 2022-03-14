@@ -70,10 +70,11 @@ public class autoSingleCmdGrp extends SequentialCommandGroup {
         new driveCmd(  60,    0.4,   -25,   "NEW_HEADING",        10,      true,   drivetrainSubSys),
         // Swing turn instead of driveCmd?
         
+        new drivePointTurnCmd(0.1, -10, true, 5, drivetrainSubSys),
+
+
         // Were there so shoot the ball
-        new shooterFireOnCmd(true, payloadSubSys),
-        new delayCmd(2.0),
-        new shooterFireOffCmd(payloadSubSys)
+        new shooterFireOnCmd(true, payloadSubSys)
 
         );
     }

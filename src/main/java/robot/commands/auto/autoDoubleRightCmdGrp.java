@@ -58,7 +58,7 @@ public class autoDoubleRightCmdGrp extends SequentialCommandGroup {
         new delayCmd(0.5),
 
         // Drive straight backwards to get ball
-        new driveCmd(-44, -0.5, 0, "CURRENT_HEADING", 8, true, drivetrainSubSys),
+        new driveCmd(-50, -0.5, 0, "CURRENT_HEADING", 8, true, drivetrainSubSys),
         
         // give time for ball to get into robot the retract intake mechanism
         new delayCmd(0.5),
@@ -66,9 +66,11 @@ public class autoDoubleRightCmdGrp extends SequentialCommandGroup {
         
         // Drforward S turn (dbl arc) to target
         // driveSwingTurnCmd(speed, rotation, dist, hdg, mode, brakeFlag, timeOut, subsystem)
+        new driveCmd(4, 0.5, 0, "CURRENT_HEADING", 3, true, drivetrainSubSys),
         new driveSwingTurnCmd(0.3, 0.3, 20, 0, "DIST", false, 5, drivetrainSubSys),
         new driveSwingTurnCmd(0.3, -0.35, 28, 0, "DIST", false, 5, drivetrainSubSys),
         
+
         // Were in position - so shoot the balls
         new shooterFireOnCmd(true, payloadSubSys),
         new delayCmd(2.0),
