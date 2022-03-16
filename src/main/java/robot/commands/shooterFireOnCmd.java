@@ -77,11 +77,12 @@ public class shooterFireOnCmd extends CommandBase {
         // double initialDelay = (0.25 * -((copilotJoystick.getThrottle() + 1)/2));  // if -1 -> 1
         // (0.25 * copilotJoystick.getThrottle());  // if 0 -> 1
         // (0.25 * ((copilotJoystick.getThrottle() + 1)/2))  // if -1 -> 1
-        if (delayTimer.get() > 0.25) {
+        double initialDelay = 0.4;
+        if (delayTimer.get() > initialDelay) {
             m_payloadSubSys.conveyorMotorStart(Constants.conveyor_speed_fire);
         }
         
-        if (delayTimer.get() > (0.25 + 0.4)) {
+        if (delayTimer.get() > (initialDelay + 0.4)) {
             m_payloadSubSys.handoffMotorStart(Constants.handoff_speed_fire);
         }
     }
