@@ -56,22 +56,28 @@ public class autoSingleCmdGrp extends SequentialCommandGroup {
 
         // Slight reverse Arc to pickup the ball
         // driveSwingTurnCmd(speed, rotation, dist,  hdg,   mode,   brakeFlag, timeOut, subsystem)
-        new driveSwingTurnCmd(-0.3,  -0.4,    -15.0,  0,   "DIST",    false,      3,     drivetrainSubSys),
+        // driveCmd(dist, pwr, hdg, mode, timeOut, brakeFlag, subsystem)
+        new driveCmd(-46, -0.5, 0, "CURRENT_HEADING", 8, true, drivetrainSubSys),
+        
+        new driveCmd(46, 0.5, 0, "CURRENT_HEADING", 8, true, drivetrainSubSys),
 
         // Keep on going backwards to get fully out of the box
         // driveCmd( dist,   pwr,   hdg,       mode,          timeOut, brakeFlag, subsystem)
-        new driveCmd(-36,   -0.4,    0,  "CURRENT_HEADING",      8,      true,     drivetrainSubSys),
+        //new driveCmd(-36,   -0.4,    0,  "CURRENT_HEADING",      8,      true,     drivetrainSubSys),
         
+
+
         // We have the ball now so retract intake mechanism
         new intakeRetractCmd(payloadSubSys),
         
         // Drive fwd with new heading to arc back in toward the goal
         // driveCmd( dist,   pwr,   hdg,       mode,          timeOut, brakeFlag, subsystem)
-        new driveCmd(  60,    0.4,   -25,   "NEW_HEADING",        10,      true,   drivetrainSubSys),
+        //new driveCmd(  60,    0.4,   -25,   "NEW_HEADING",        10,      true,   drivetrainSubSys),
         // Swing turn instead of driveCmd?
         
-        new drivePointTurnCmd(0.1, -10, true, 5, drivetrainSubSys),
-
+        // drivePointTurnCmd(rotation, hdg, brakeFlag, timeOut, subsystem)
+        new drivePointTurnCmd(0.30, -10, true, 5, drivetrainSubSys),
+        new driveCmd(30, 0.6, 0, "CURRENT_HEADING", 7, true, drivetrainSubSys),
 
         // Were there so shoot the ball
         new shooterFireOnCmd(true, payloadSubSys)
