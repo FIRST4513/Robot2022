@@ -58,7 +58,8 @@ public class autoSingleCmdGrp extends SequentialCommandGroup {
         // driveSwingTurnCmd(speed, rotation, dist,  hdg,   mode,   brakeFlag, timeOut, subsystem)
         // driveCmd(dist, pwr, hdg, mode, timeOut, brakeFlag, subsystem)
         new driveCmd(-46, -0.5, 0, "CURRENT_HEADING", 8, true, drivetrainSubSys),
-        
+
+
         new driveCmd(46, 0.5, 0, "CURRENT_HEADING", 8, true, drivetrainSubSys),
 
         // Keep on going backwards to get fully out of the box
@@ -76,7 +77,11 @@ public class autoSingleCmdGrp extends SequentialCommandGroup {
         // Swing turn instead of driveCmd?
         
         // drivePointTurnCmd(rotation, hdg, brakeFlag, timeOut, subsystem)
-        new drivePointTurnCmd(0.30, -10, true, 5, drivetrainSubSys),
+        
+        
+        new drivePointTurnCmd(0.3, -10, true, 5, drivetrainSubSys),
+        
+        
         new driveCmd(30, 0.6, 0, "CURRENT_HEADING", 7, true, drivetrainSubSys),
 
         // Were there so shoot the ball
