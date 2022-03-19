@@ -70,8 +70,9 @@ public class autoDoubleRightCmdGrp extends SequentialCommandGroup {
         new driveSwingTurnCmd(0.3, 0.3, 20, 0, "DIST", false, 5, drivetrainSubSys),
         new driveSwingTurnCmd(0.3, -0.35, 43, 0, "DIST", false, 5, drivetrainSubSys),
         // driveCmd(dist, pwr, hdg,    mode,    timeOut, brakeFlag, subsystem)
-        //new driveCmd(12, 0.5, 0, "CURRENT_HEADING", 4,    false, drivetrainSubSys),
         
+        new clearEncodersCmd(drivetrainSubSys),
+        new driveCmd(6, 0.5, 0, "CURRENT_HEADING", 4,    false, drivetrainSubSys),
 
         // Were in position - so shoot the balls
         new shooterFireOnCmd(true, payloadSubSys),
