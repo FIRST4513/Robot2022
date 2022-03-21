@@ -57,6 +57,7 @@ public class autoSingleCmdGrp extends SequentialCommandGroup {
         // Slight reverse Arc to pickup the ball
         // driveSwingTurnCmd(speed, rotation, dist,  hdg,   mode,   brakeFlag, timeOut, subsystem)
         // driveCmd(dist, pwr, hdg, mode, timeOut, brakeFlag, subsystem)
+        
         new driveCmd(-46, -0.5, 0, "CURRENT_HEADING", 8, true, drivetrainSubSys),
 
 
@@ -69,6 +70,7 @@ public class autoSingleCmdGrp extends SequentialCommandGroup {
 
 
         // We have the ball now so retract intake mechanism
+        
         new intakeRetractCmd(payloadSubSys),
         
         // Drive fwd with new heading to arc back in toward the goal
@@ -78,11 +80,15 @@ public class autoSingleCmdGrp extends SequentialCommandGroup {
         
         // drivePointTurnCmd(rotation, hdg, brakeFlag, timeOut, subsystem)
         
+
+        //                  POINT TURNS
+        //
+        //   MAKE SURE THE ROTATION AND HEADING ARE THE SAME POLARITY
+        //
+        new drivePointTurnCmd(-0.3, -8, true, 5, drivetrainSubSys),
         
-        new drivePointTurnCmd(0.3, -10, true, 5, drivetrainSubSys),
         
-        
-        new driveCmd(30, 0.6, 0, "CURRENT_HEADING", 7, true, drivetrainSubSys),
+        new driveCmd(35, 0.6, 0, "CURRENT_HEADING", 7, true, drivetrainSubSys),
 
         // Were there so shoot the ball
         new shooterFireOnCmd(true, payloadSubSys)
