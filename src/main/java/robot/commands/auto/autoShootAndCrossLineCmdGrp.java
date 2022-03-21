@@ -50,7 +50,7 @@ public class autoShootAndCrossLineCmdGrp extends SequentialCommandGroup {
         // Fire and drive out of box  
         new shooterFireOnCmd(true, payloadSubSys),
         new shooterFireOffCmd(payloadSubSys),
-        new driveCmd(-43, -0.5, 0, "CURRENT_HEADING", 5, true, drivetrainSubSys)
+        new driveCmd(-85, -0.5, 0, "CURRENT_HEADING", 5, true, drivetrainSubSys)
 
         );
     }

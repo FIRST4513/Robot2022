@@ -47,7 +47,7 @@ public class autoCrossLineOnlyCmdGrp extends SequentialCommandGroup {
         new resetGyroCmd(drivetrainSubSys),
         new clearEncodersCmd(drivetrainSubSys),
         
-        new driveCmd(-43, -0.5, 0, "CURRENT_HEADING", 5, true, drivetrainSubSys)
+        new driveCmd(-30, -0.5, 0, "CURRENT_HEADING", 5, true, drivetrainSubSys)
 
         );
     }
