@@ -24,16 +24,15 @@ public class Constants {
 
     // Shooter motor constants
     public static double shooter_speed = 0.66;  // default
-    public static double shooter_speed_fire = 0.65;  // shooting-specific
+    public static double shooter_speed_fire = 1.0;  // shooting-specific
 
     // Conveyor motor constants
     public static double conveyor_speed = 0.40;
-    public static double conveyor_speed_fire = 0.50;
+    public static double conveyor_speed_fire = 1.0;
     
     // Handoff motor constants
     public static double handoff_speed = 0.75;
-    public static double handoff_speed_fire = 0.50;
-    
+    public static double handoff_speed_fire = 0.75;
     
     // Intake motor constants
     public static double intake_speed = 0.80;
