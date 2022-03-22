@@ -19,6 +19,9 @@ import edu.wpi.first.wpilibj.SPI;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.Timer;
 
+import com.ctre.phoenix.motorcontrol.StatorCurrentLimitConfiguration;
+import com.ctre.phoenix.motorcontrol.SupplyCurrentLimitConfiguration;
+
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 import com.ctre.phoenix.motorcontrol.NeutralMode;
@@ -52,6 +55,34 @@ private DifferentialDrive driveCtrl;
 
     private static final double GYROCORRLIMIT = 0.5;
     private static final double GYROCORRCNST =  0.05;  //-- 0.35?
+
+    // -------------- Drive Motor Current Limiting ---------------
+    /**
+     * Description:
+     * The Current Limit example demonstrates the Talon's ability to perform current limiting.
+     * The Current Limit Feature expands across 4 different functions:
+     * 1.) configPeakCurrentLimit(), Config current threshold to trigger current limit
+     * 2.) configPeakCurrentDuration(), Config duration after peak current to trigger current limit
+     * 3.) configContinousCurrentLimit(), Config current to maintain after limit is triggered
+     * 4.) enableCurrentLimit(bool enable), Enable/Disable Current Limiting on Talon
+     *
+     * This example has been configured to hold 10 Amps almost instantly after current
+     * exceed peak current limit of 15 Amps.
+     * 
+     * 
+     * Supported Version:
+     * 	- Talon FX: 20.2.3.0
+ */
+
+    static final boolean talonStatorLimit = false;
+    static final boolean talonSupplyLimit = false;
+    static final int kStatorLimitAmp = 20;
+    static final int kStatorTriggerThresholdAmp = 25; 
+    static final double kStatorTriggerThresholdTime = 1;
+
+    static final int kSupplyLimitAmp = 10;
+    static final int kSupplyTriggerThresholdAmp = 15; 
+    static final double kSupplyTriggerThresholdTime = 0.5; 
 
     private static Timer driveTimer = new Timer();
     private double avgVelMinus1 = 0;
@@ -105,6 +136,30 @@ driveCtrl.setMaxOutput(1.0);
     leftMotor2.setNeutralMode(NeutralMode.Brake);
     rightMotor1.setNeutralMode(NeutralMode.Brake);
     rightMotor2.setNeutralMode(NeutralMode.Brake);
+
+
+    /**
+     * Configure the current limits that will be used
+     * Stator Current is the current that passes through the motor stators.
+     *  Use stator current limits to limit rotor acceleration/heat production
+     * Supply Current is the current that passes into the controller from the supply
+     *  Use supply current limits to prevent breakers from tripping
+     * 
+     * https://phoenix-documentation.readthedocs.io/en/latest/ch13_MC.html#current-limit
+     * 
+     *                                                                        enabled | Limit(amp) | Trigger Threshold(amp) | Trigger Threshold Time(s)  */
+    //leftMotor1
+    leftMotor1.configStatorCurrentLimit(new StatorCurrentLimitConfiguration(talonStatorLimit, kStatorLimitAmp, kStatorTriggerThresholdAmp, kStatorTriggerThresholdTime));
+    leftMotor1.configSupplyCurrentLimit(new SupplyCurrentLimitConfiguration(talonSupplyLimit, kSupplyLimitAmp, kSupplyTriggerThresholdAmp, kSupplyTriggerThresholdTime));
+    //leftMotor2
+    leftMotor2.configStatorCurrentLimit(new StatorCurrentLimitConfiguration(talonStatorLimit, kStatorLimitAmp, kStatorTriggerThresholdAmp, kStatorTriggerThresholdTime));
+    leftMotor2.configSupplyCurrentLimit(new SupplyCurrentLimitConfiguration(talonSupplyLimit, kSupplyLimitAmp, kSupplyTriggerThresholdAmp, kSupplyTriggerThresholdTime));
+    //RightMotor1
+    rightMotor1.configStatorCurrentLimit(new StatorCurrentLimitConfiguration(talonStatorLimit, kStatorLimitAmp, kStatorTriggerThresholdAmp, kStatorTriggerThresholdTime));
+    rightMotor1.configSupplyCurrentLimit(new SupplyCurrentLimitConfiguration(talonSupplyLimit, kSupplyLimitAmp, kSupplyTriggerThresholdAmp, kSupplyTriggerThresholdTime));
+    //RightMotor2
+    rightMotor2.configStatorCurrentLimit(new StatorCurrentLimitConfiguration(talonStatorLimit, kStatorLimitAmp, kStatorTriggerThresholdAmp, kStatorTriggerThresholdTime));
+    rightMotor2.configSupplyCurrentLimit(new SupplyCurrentLimitConfiguration(talonSupplyLimit, kSupplyLimitAmp, kSupplyTriggerThresholdAmp, kSupplyTriggerThresholdTime));
 
     initEncoders();
     driveTimer.reset();
