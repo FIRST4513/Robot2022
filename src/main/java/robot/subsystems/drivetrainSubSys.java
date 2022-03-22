@@ -74,15 +74,27 @@ private DifferentialDrive driveCtrl;
      * 	- Talon FX: 20.2.3.0
  */
 
+    // Stator Limits
     static final boolean talonStatorLimit = false;
-    static final boolean talonSupplyLimit = false;
-    static final int kStatorLimitAmp = 20;
-    static final int kStatorTriggerThresholdAmp = 25; 
+    static final double kStatorTriggerThresholdAmp = 30; 
     static final double kStatorTriggerThresholdTime = 1;
+    static final double kStatorLimitAmp = 25;
 
-    static final int kSupplyLimitAmp = 10;
-    static final int kSupplyTriggerThresholdAmp = 15; 
-    static final double kSupplyTriggerThresholdTime = 0.5; 
+    // Supply Limits
+    static final boolean talonSupplyLimit = false;
+    static final double kSupplyTriggerThresholdAmp = 30; 
+    static final double kSupplyTriggerThresholdTime = 0.5;
+    static final double kSupplyLimitAmp = 25; 
+
+    // Drive Motor Current Limiting Used in 2020 Robot with 3 motors on each side
+    //private static final int DRIVE_MTR_MAX_PEAK_CURRENT = 25;    // Amps
+    //private static final int DRIVE_MTR_MAX_PEAK_DURATION = 100;   // Milliseconds
+    //private static final int DRIVE_MTR_MAX_CONT_CURRENT = 25;    // Amps
+    //private static final boolean DRIVE_MTR_CURRENT_LIMIT_FLAG = true;
+    // Example from CTRE 
+    //                                                                  enabled | Limit(amp) | Trigger Threshold(amp) | Trigger Threshold Time(s)
+    // motor.configStatorCurrentLimit(new StatorCurrentLimitConfiguration(true,      20,                25,                1.0));
+    // motor.configSupplyCurrentLimit(new SupplyCurrentLimitConfiguration(true,      10,                15,                0.5));
 
     private static Timer driveTimer = new Timer();
     private double avgVelMinus1 = 0;
