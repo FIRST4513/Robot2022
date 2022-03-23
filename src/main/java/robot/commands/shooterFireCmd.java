@@ -57,17 +57,24 @@ public class shooterFireCmd extends CommandBase {
         delayTimer.start();
         m_payloadSubSys.shooterMotorStart(Constants.shooter_speed_fire);
         System.out.println("---------- shooterFireOnCmd has started");
+        m_payloadSubSys.conveyorMotorStart(-0.3);
+        m_payloadSubSys.handoffMotorStart(-0.3);
     }
 
     // Called every time the scheduler runs while the command is scheduled.
     @Override
     public void execute() {
-        double initialDelay = 0.4;
+        if (delayTimer.get() > 0.1) {
+            m_payloadSubSys.conveyorMotorStop();
+            m_payloadSubSys.handoffMotorStop();
+        }
+
+        double initialDelay = 0.5;
         if (delayTimer.get() > initialDelay) {
             m_payloadSubSys.conveyorMotorStart(Constants.conveyor_speed_fire);
         }
         
-        if (delayTimer.get() > initialDelay + 0.4) {
+        if (delayTimer.get() > initialDelay + 0.3) {
             m_payloadSubSys.handoffMotorStart(Constants.handoff_speed_fire);
         }
     }
