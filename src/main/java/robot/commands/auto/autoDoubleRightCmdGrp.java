@@ -58,7 +58,7 @@ public class autoDoubleRightCmdGrp extends SequentialCommandGroup {
         new delayCmd(0.5),
 
         // Drive straight backwards to get ball
-        new driveCmd(-50, -0.5, 0, "CURRENT_HEADING", 8, true, drivetrainSubSys),
+        new driveCmd(-56, -0.5, 0, "CURRENT_HEADING", 8, true, drivetrainSubSys),
         
         // give time for ball to get into robot the retract intake mechanism
         new delayCmd(0.5),
@@ -66,18 +66,20 @@ public class autoDoubleRightCmdGrp extends SequentialCommandGroup {
         
         // Drforward S turn (dbl arc) to target
         // driveSwingTurnCmd(speed, rotation, dist, hdg, mode, brakeFlag, timeOut, subsystem)
-        new driveCmd(4, 0.5, 0, "CURRENT_HEADING", 3, true, drivetrainSubSys),
+        new driveCmd(10, 0.5, 0, "CURRENT_HEADING", 3, true, drivetrainSubSys),
         new driveSwingTurnCmd(0.3, 0.3, 20, 0, "DIST", false, 5, drivetrainSubSys),
-        new driveSwingTurnCmd(0.3, -0.35, 43, 0, "DIST", false, 5, drivetrainSubSys),
+        new clearEncodersCmd(drivetrainSubSys),
+
+        new driveCmd(24, 0.5, 0, "CURRENT_HEADING", 3, true, drivetrainSubSys),
+        
+        new driveSwingTurnCmd(0.3, -0.38, 28, 0, "DIST", false, 5, drivetrainSubSys),
         // driveCmd(dist, pwr, hdg,    mode,    timeOut, brakeFlag, subsystem)
         
         new clearEncodersCmd(drivetrainSubSys),
-        new driveCmd(6, 0.5, 0, "CURRENT_HEADING", 4,    false, drivetrainSubSys),
+        //new driveCmd(2, 0.5, 0, "CURRENT_HEADING", 4,    false, drivetrainSubSys),
 
         // Were in position - so shoot the balls
-        new shooterFireOnCmd(true, payloadSubSys),
-        new delayCmd(2.0),
-        new shooterFireOffCmd(payloadSubSys)
+        new shooterFireCmd(payloadSubSys)
 
         // Original Route - Robot parallel with front line
         // not preferred because did not get far out of the box

@@ -55,25 +55,56 @@ public class autoDoubleCenterCmdGrp extends SequentialCommandGroup {
        
         // Drive reverse with a large reverse clockwise arc to get ball
         // driveSwingTurnCmd(speed, rotation, dist, hdg, mode, brakeFlag, timeOut, subsystem)
-        new driveSwingTurnCmd(-0.20, 0.38, -62, 0, "DIST", false, 7, drivetrainSubSys),
+        new driveSwingTurnCmd(-0.20, 0.42, -56, 0, "DIST", false, 7, drivetrainSubSys),
 
         // Drive backwards 8 inches after reverse arc 
         new driveCmd(-8.0, -0.4, 0, "CURRENT_HEADING", 3, true, drivetrainSubSys),
         
-        // Drive forward with a tighter turn radius
-        new driveSwingTurnCmd(0.20, -0.38, 52, 0, "DIST", false, 7, drivetrainSubSys),
-        
+        // delay for ball intaking
+        new delayCmd(1),
+
         // Retract intake mechanism
         new intakeRetractCmd(payloadSubSys),
+
+        // Delay to make sure intake gets up before rotating the robot
+        new delayCmd(1),
+
+        // clear the gyro for the pickly little point turn in the next few lines
+        new resetGyroCmd(drivetrainSubSys),
+
+        // Point turn towards the goal
+        new drivePointTurnCmd(-0.2, -50, true, 5, drivetrainSubSys),
+
+        // Drive forward to the goal
+        new driveCmd(60, 0.5, 0, "CURRENT_HEADING", 10, true, drivetrainSubSys),
+
+        new resetGyroCmd(drivetrainSubSys),
+        
+        new drivePointTurnCmd(0.2, 18, true, 3, drivetrainSubSys),
+
+        new driveCmd(16, 0.5, 0, "CURRENT_HEADING", 3, true, drivetrainSubSys),
+
+        new shooterFireCmd(payloadSubSys)
+
+        /*
+        // Drive forward with a tighter turn radius
+        new driveSwingTurnCmd(0.20, -0.42, 52, 0, "DIST", false, 7, drivetrainSubSys),
+
+        // Add some distance towards the center of the goal
+        new driveCmd(8, 0.5, 0, "CURRENT_HEADING", 5, false, drivetrainSubSys),
         
         // Drive a small 20" arc to line up for shooring the ball straight in
-        new driveSwingTurnCmd(0.25, 0.4, 16, 0, "DIST", true, 6, drivetrainSubSys),
+        new driveSwingTurnCmd(0.25, 0.4, 12, 0, "DIST", false, 6, drivetrainSubSys),
+
+        // Drive forwards 12 inches in order to get closer to the fender for a better shot
+        new driveCmd(16, 0.4, 0, "CURRENT_HEADING", 3, true, drivetrainSubSys),
+
+        // Point turn to angle more towards the goal
+        new drivePointTurnCmd(0.3, 22.5, true, 3, drivetrainSubSys),
 
         // were there so shoot the ball
-        new shooterFireOnCmd(true, payloadSubSys),
-        new shooterFireOffCmd(payloadSubSys)
-
-        
+        new shooterFireCmd(payloadSubSys)
+        */
         );
     }
 
