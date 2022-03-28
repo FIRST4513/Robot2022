@@ -81,7 +81,7 @@ private DifferentialDrive driveCtrl;
     static final double kStatorLimitAmp = 25;
 
     // Supply Limits
-    static final boolean talonSupplyLimit = false;
+    static final boolean talonSupplyLimit = false;          // controls how much current the motor controllers can consume when at full load (boolean for on/off)
     static final double kSupplyTriggerThresholdAmp = 30; 
     static final double kSupplyTriggerThresholdTime = 0.5;
     static final double kSupplyLimitAmp = 25; 
