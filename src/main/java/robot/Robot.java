@@ -18,6 +18,7 @@ import edu.wpi.first.hal.HAL;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
+import edu.wpi.first.wpilibj.Timer;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -32,6 +33,8 @@ public class Robot extends TimedRobot {
 
     private RobotContainer m_robotContainer;
 
+    private Timer m_elapsedTimer;
+
     /**
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
@@ -44,6 +47,11 @@ public class Robot extends TimedRobot {
         HAL.report(tResourceType.kResourceType_Framework, tInstances.kFramework_RobotBuilder);
         m_robotContainer.m_drivetrainSubSys.resetEncoders();
         m_robotContainer.m_drivetrainSubSys.resetGyro();
+
+        // Timer stuff (experimental)
+        m_elapsedTimer = new Timer();
+        m_elapsedTimer.reset();
+        m_elapsedTimer.start();
     }
 
     /**
@@ -60,6 +68,11 @@ public class Robot extends TimedRobot {
         // and running subsystem periodic() methods.  This must be called from the robot's periodic
         // block in order for anything in the Command-based framework to work.
         CommandScheduler.getInstance().run();
+
+        // Timer stuff (experimental)
+        if (m_elapsedTimer.get() > 180) {
+            System.out.println("----- IT HAS BEEN 3 MINUTES, TIME TO CHANGE THE BATTERY-----");
+        }
     }
 
 
