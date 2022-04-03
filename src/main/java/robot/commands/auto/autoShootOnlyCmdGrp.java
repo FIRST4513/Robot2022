@@ -42,8 +42,7 @@ public class autoShootOnlyCmdGrp extends SequentialCommandGroup {
         //      )    
         //  );
 
-        new shooterFireOnCmd(true, payloadSubSys),
-        new shooterFireOffCmd(payloadSubSys)
+        new shooterFireCmd(payloadSubSys)
 
          );
     }

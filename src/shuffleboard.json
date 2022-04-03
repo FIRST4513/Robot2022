@@ -11,7 +11,7 @@
         "vgap": 16.0,
         "titleType": 0,
         "tiles": {
-          "0,1": {
+          "1,1": {
             "size": [
               4,
               3
@@ -201,7 +201,7 @@
   "windowGeometry": {
     "x": 0.0,
     "y": 3.5,
-    "width": 789.0,
+    "width": 763.0,
     "height": 840.0
   }
 }
