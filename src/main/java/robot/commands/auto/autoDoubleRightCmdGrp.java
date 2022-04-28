@@ -72,7 +72,7 @@ public class autoDoubleRightCmdGrp extends SequentialCommandGroup {
 
         new driveCmd(24, 0.5, 0, "CURRENT_HEADING", 3, true, drivetrainSubSys),
         
-        new driveSwingTurnCmd(0.3, -0.38, 32, 0, "DIST", false, 5, drivetrainSubSys),
+        new driveSwingTurnCmd(0.3, -0.38, 36, 0, "DIST", false, 5, drivetrainSubSys),
         // driveCmd(dist, pwr, hdg,    mode,    timeOut, brakeFlag, subsystem)
 
         new clearEncodersCmd(drivetrainSubSys),
