@@ -24,7 +24,9 @@ public class Constants {
 
     // Shooter motor constants
     public static double shooter_speed = 0.66;  // default
-    public static double shooter_speed_fire = 1.0;  // shooting-specific
+    public static double shooter_speed_fire = 0.92;  // shooting-specific
+    // public static double shooter_speed_fire = 1.0;  // shooting-specific (West Valley)
+
 
     // Conveyor motor constants
     public static double conveyor_speed = 0.40;
