@@ -27,7 +27,6 @@ public class Constants {
     public static double shooter_speed_fire = 0.92;  // shooting-specific
     // public static double shooter_speed_fire = 1.0;  // shooting-specific (West Valley)
 
-    //test
 
     // Conveyor motor constants
     public static double conveyor_speed = 0.40;
